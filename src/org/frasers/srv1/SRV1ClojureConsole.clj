@@ -41,7 +41,11 @@
 
 ;(def encoding)
 ;(def commandLog)
-(defn makeCommandButton)
+(defn makeCommandButton [label cmd commandLog]
+  (doto (JButton. label) (.addActionListener
+                           (proxy [ActionListener] []
+                             (actionPerformed [event]
+                               (sendCommandToRobot cmd))))))
 
 (defn convertHexToBytesInString [strHex]
   (String. (.toByteArray (BigInteger. strHex 16))))
@@ -136,10 +140,6 @@
     ; do this once to be sure
     (sendCommandToRobot "4D00FF14" encoding_HEX)))
 
-(defn makeCommandButton [label cmd commandLog]
-  (doto (JButton. label) (.addActionListener
-                           (proxy [ActionListener] []
-                             (actionPerformed [event]
-                               (sendCommandToRobot cmd))))))
+
 
 (-main)

@@ -46,13 +46,26 @@
 ; forward and back
 (defn forward
   ([] (sendCommandToRobot "8"))
-  ([x] (forward) (Thread/sleep x) (stop)))
+  ([x] (forward) (sleep x) (stop)))
+
+; comment consider making all these commands with sleep in them agents!
+; then you can string together multiple commands
+; would need to make sure sendCommandToRobot was thread safe(flash 100)
 
 (defn back
   ([] (sendCommandToRobot "2"))
   ([x] (back)(Thread/sleep x) (stop)))
 
 (defn stop[] (sendCommandToRobot "5")(sleep))
+
+(defn battery[] (sendCommandToRobot "D"))
+
+(defn driftleft[] (sendCommandToRobot "4D283C00" encoding_HEX)(sleep)(stop))
+(defn driftright[] (sendCommandToRobot "4D3C2800" encoding_HEX)(sleep)(stop))
+
+(defn backleft[] (sendCommandToRobot "4DE2BA00" encoding_HEX)(sleep)(stop))
+(defn backright[] (sendCommandToRobot "4DBAE200" encoding_HEX)(sleep)(stop))
+
 
 (defn dance[]
   (forward 500)
@@ -70,12 +83,3 @@
   (backright)
   (flash 10)
   (dotimes [i 10] (right)(flash 1)(right)(flash 1)(left)(flash 1)))
-
-
-(defn battery[] (sendCommandToRobot "D"))
-
-(defn driftleft[] (sendCommandToRobot "4D283C00" encoding_HEX)(sleep)(stop))
-(defn driftright[] (sendCommandToRobot "4D3C2800" encoding_HEX)(sleep)(stop))
-
-(defn backleft[] (sendCommandToRobot "4DE2BA00" encoding_HEX)(sleep)(stop))
-(defn backright[] (sendCommandToRobot "4DBAE200" encoding_HEX)(sleep)(stop))
