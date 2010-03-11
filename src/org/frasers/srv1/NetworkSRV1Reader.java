@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class NetworkSRV1Reader extends Thread {
 
-    final boolean bDebug = false;
+    final boolean _bDebug = false;
 
     private static PrintStream __log = System.out;
 
@@ -131,13 +131,13 @@ public class NetworkSRV1Reader extends Thread {
                         int offset = __FRAME_HEAD.length;
                         long frameSize = 0;
                         byte frameDim = buf[offset++];
-                        if( bDebug ) {
+                        if(_bDebug) {
                             __log.println("frame dim: " + frameDim);
                         }
                         for (int i = 0; i < 4; i++) {
                             frameSize += (0xff & buf[offset++]) << (8 * i);
                         }
-                        if( bDebug ) {
+                        if(_bDebug) {
                             __log.println("frame size: " + frameSize);
                         }
                         frame = new byte[(int) frameSize];
@@ -155,14 +155,14 @@ public class NetworkSRV1Reader extends Thread {
                         System.arraycopy(buf, 0, frame, framePos, leftToRead);
 
                         // ship this frame out to the frame listener(_sock)
-                        for (Iterator fl = _frameListeners.iterator(); fl.hasNext();) {
-                            ((FrameListener) fl.next()).newFrame(frame);
+                        for (FrameListener frameListener : _frameListeners) {
+                            frameListener.newFrame(frame);
                         }
 
                         frameCount++;
                         long elapsed = (System.currentTimeMillis() - start) / 1000; // _sock
                         float fps = frameCount / (elapsed + 1);
-                        if( bDebug ) {
+                        if(_bDebug) {
                             __log.println("read full frame, size: " + frame.length + ", " + fps + " fps");
                         }
                         framePos = 0;
@@ -187,9 +187,11 @@ public class NetworkSRV1Reader extends Thread {
 
     // Search for the sequence "part" in the full array "data", starting at index "start".
     // Returns -1 if the "data" array does not contain "part".
-    private static int __IndexOf( final byte[] p_data, 
-                          final byte[] p_part, 
-                          final int p_start) {
+
+    private static int __IndexOf(
+            final byte[] p_data,
+            final byte[] p_part,
+            final int p_start) {
         int match = -1;
         for (int i = p_start; i <= p_data.length - p_part.length && match == -1; i++) {
             for (int j = 0; j < p_part.length && p_data[i + j] == p_part[j]; j++) {

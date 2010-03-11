@@ -4,6 +4,8 @@
  */
 package org.frasers.srv1;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.awt.*;
 import java.io.PrintStream;
 
@@ -12,54 +14,58 @@ import java.io.PrintStream;
  */
 public class JpegRenderer extends Canvas implements FrameListener {
 
-    private static PrintStream log = System.out;
+    private static PrintStream __log = System.out;
 
-    private byte[] imgBuf = null;
-    private Image img = null;
-    private MediaTracker tracker = null;
-    private int w,  h,  x,  y;
+    @NotNull
+    private byte[] _imgBuf = new byte[0];
 
-    final private Frame m_frame;
+    private Image _img = null;
+    private MediaTracker _tracker = null;
+
+    private int _w;
+    private int _h;
+
+    final private Frame _frame;
 
     public JpegRenderer( final Frame p_frame ) {
-        m_frame = p_frame;
-        tracker = new MediaTracker(this);
+        _frame = p_frame;
+        _tracker = new MediaTracker(this);
     }
 
     public void paint(Graphics g) {
-        if (img == null && imgBuf != null) {
+        if (_img == null && _imgBuf != null) {
             // hardly the most optimal way to decode a JPEG, but...
-            img = Toolkit.getDefaultToolkit().createImage(imgBuf);
-            tracker.addImage(img, 0);
+            _img = Toolkit.getDefaultToolkit().createImage(_imgBuf);
+            _tracker.addImage(_img, 0);
             try {
-                tracker.waitForID(0);
+                _tracker.waitForID(0);
             } catch (InterruptedException ie) {
-                log.println("JPEG decode error " + ie);
+                __log.println("JPEG decode error " + ie);
             }
-            if (!tracker.isErrorID(0)) {
+            if (!_tracker.isErrorID(0)) {
             }
-            tracker.removeImage(img);
+            _tracker.removeImage(_img);
         }
 
-        if (img != null) {
+        if (_img != null) {
             // resize frame/window, if necessary
-            if (w != img.getWidth(this) || h != img.getHeight(this)) {
-                w = img.getWidth(this);
-                h = img.getHeight(this);
-                if (w <= 25) {
-                    w = 320;
+            if (_w != _img.getWidth(this) || _h != _img.getHeight(this)) {
+                _w = _img.getWidth(this);
+                _h = _img.getHeight(this);
+                if (_w <= 25) {
+                    _w = 320;
                 }
-                if (h <= 25) {
-                    h = 240;
+                if (_h <= 25) {
+                    _h = 240;
                 }
-                this.setSize(w, h);
-                m_frame.pack();
+                this.setSize(_w, _h);
+                _frame.pack();
             }
 
             // keep image centered, no matter the window size
-            x = Math.max((this.getWidth() - w) / 2, 0);
-            y = Math.max((this.getHeight() - h) / 2, 0);
-            g.drawImage(img, x, y, null);
+            final int x = Math.max((this.getWidth() - _w) / 2, 0);
+            final int y = Math.max((this.getHeight() - _h) / 2, 0);
+            g.drawImage(_img, x, y, null);
         }
     }
 
@@ -69,12 +75,15 @@ public class JpegRenderer extends Canvas implements FrameListener {
     }
 
     public void newFrame(byte[] frame) {
-        imgBuf = new byte[frame.length];
-        System.arraycopy(frame, 0, imgBuf, 0, frame.length);
-        if (img != null) {
-            img.flush();
+        // don't create a new array unless we have to
+        if( _imgBuf.length != frame.length ) {
+            _imgBuf = new byte[frame.length];
         }
-        img = null;
+        System.arraycopy(frame, 0, _imgBuf, 0, frame.length);
+        if (_img != null) {
+            _img.flush();
+        }
+        _img = null;
         repaint();
     }
 }

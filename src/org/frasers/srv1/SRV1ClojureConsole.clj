@@ -23,19 +23,19 @@
 (declare commandLog)
 
 (defn sendCommandToRobot
-  ([cmd encoding]
-    (. srv1 sendCommand cmd (buildCommand cmd encoding)
-      (proxy [SRV1CommandCallback] []
-        (success [cmdString response]
-          ;(println (format "sendcommand: %s response: %s" cmdString response))
-          (. commandLog append (format "[%s] response: %s %n" cmdString response))
-          (. commandLog setCaretPosition (.. commandLog getText length)))
-        (failure [cmdString]
-          ;(println (format "FAILED sendcommand: %s" cmdString))
-          (. commandLog append (format "FAILED sendcommand: %s" cmdString))
-          (. commandLog setCaretPosition Integer/MAX_VALUE)))))
-  ([cmd]
-    (sendCommandToRobot cmd encoding_ASCII)))
+  (([cmd]
+      (sendCommandToRobot cmd encoding_ASCII))
+    [cmd encoding]
+      (. srv1 sendCommand cmd (buildCommand cmd encoding)
+        (proxy [SRV1CommandCallback] []
+          (success [cmdString response]
+            ;(println (format "sendcommand: %s response: %s" cmdString response))
+            (. commandLog append (format "[%s] response: %s %n" cmdString response))
+            (. commandLog setCaretPosition (.. commandLog getText length)))
+          (failure [cmdString]
+            ;(println (format "FAILED sendcommand: %s" cmdString))
+            (. commandLog append (format "FAILED sendcommand: %s" cmdString))
+            (. commandLog setCaretPosition Integer/MAX_VALUE))))))
 
 
 

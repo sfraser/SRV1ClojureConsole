@@ -11,17 +11,17 @@ package org.frasers.srv1;
  */
 class SRV1Command
 {
-    private final String cmdString;
-    private final byte[] cmdBytes;
-    private final SRV1CommandCallback callback;
+    private final String _cmdString;
+    private final byte[] _cmdBytes;
+    private final SRV1CommandCallback _callback;
 
     public SRV1Command(String cmdString, byte[] cmdBytes, SRV1CommandCallback callback) {
-        this.cmdString = cmdString;
-        this.cmdBytes = cmdBytes;
-        this.callback = callback;
+        _cmdString = cmdString;
+        _cmdBytes = cmdBytes;
+        _callback = callback;
     }
 
-    public String getString() { return cmdString; }
-    public byte[] getBytes() { return cmdBytes; }
-    public SRV1CommandCallback getCallback() { return callback; }
+    public String getString() { return _cmdString; }
+    public byte[] getBytes() { return _cmdBytes; }
+    public SRV1CommandCallback getCallback() { return _callback; }
 }
