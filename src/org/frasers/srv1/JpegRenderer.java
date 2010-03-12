@@ -75,9 +75,10 @@ public class JpegRenderer extends Canvas implements FrameListener {
     }
 
     public void newFrame(byte[] frame) {
-        // don't create a new array unless we have to
-        if( _imgBuf.length != frame.length ) {
-            _imgBuf = new byte[frame.length];
+        // don't create a new array unless we have to to save heap churnage
+        // just make one a little bigger by 10% any time we need more headroom
+        if( _imgBuf.length <= frame.length ) {
+            _imgBuf = new byte[frame.length + (frame.length/10)];
         }
         System.arraycopy(frame, 0, _imgBuf, 0, frame.length);
         if (_img != null) {
