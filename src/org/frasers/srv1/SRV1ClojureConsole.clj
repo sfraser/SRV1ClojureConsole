@@ -23,9 +23,9 @@
 (declare commandLog)
 
 (defn sendCommandToRobot
-  (([cmd]
+  ([cmd]
       (sendCommandToRobot cmd encoding_ASCII))
-    [cmd encoding]
+  ([cmd encoding]
       (. srv1 sendCommand cmd (buildCommand cmd encoding)
         (proxy [SRV1CommandCallback] []
           (success [cmdString response]
