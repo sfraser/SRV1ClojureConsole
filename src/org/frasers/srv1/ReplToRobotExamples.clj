@@ -43,6 +43,8 @@
 (defn left[] (sendCommandToRobot "0")(sleep))
 (defn right[] (sendCommandToRobot ".")(sleep))
 
+(defn stop[] (sendCommandToRobot "5")(sleep))
+
 ; forward and back
 (defn forward
   ([] (sendCommandToRobot "8"))
@@ -55,8 +57,6 @@
 (defn back
   ([] (sendCommandToRobot "2"))
   ([x] (back)(Thread/sleep x) (stop)))
-
-(defn stop[] (sendCommandToRobot "5")(sleep))
 
 (defn battery[] (sendCommandToRobot "D"))
 

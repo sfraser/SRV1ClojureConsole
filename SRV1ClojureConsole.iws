@@ -17,9 +17,10 @@
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="01ef0f1a-9a3e-48d2-933d-92713878e6f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SRV1ClojureConsole.iws" afterPath="$PROJECT_DIR$/SRV1ClojureConsole.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj" />
     </list>
-    <ignored path="SRV1ClojureConsole.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path="SRV1ClojureConsole.iws" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JpegRenderer.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JpegRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="785" selection-end="785" vertical-scroll-proportion="0.22912206">
+            <state line="61" column="66" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,25 +130,16 @@
       <file leaf-file-name="SRV1ClojureConsole.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="26" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
+            <state line="84" column="64" selection-start="2702" selection-end="2758" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReplToRobotExamples.clj" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ReplToRobotExamples.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="0" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0">
+            <state line="69" column="0" selection-start="1805" selection-end="2072" vertical-scroll-proportion="2.3323944">
               <folding />
             </state>
           </provider>
@@ -163,11 +155,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Command.java" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java" />
+        <option value="$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj" />
       </list>
     </option>
   </component>
@@ -230,6 +222,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -269,8 +263,6 @@
         </subPane>
       </pane>
       <pane id="Favorites" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -302,7 +294,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.clojure.settings.ClojureConfigurable" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -530,10 +522,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1050" height="1654" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1920" height="1054" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33116037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33027524" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39960888" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -548,15 +540,15 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23776224" sideWeight="0.6642764" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18904825" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10261892" sideWeight="0.4103115" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5821697" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Graphical Navigator" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Clojure REPL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3285528" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Clojure REPL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4113856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975364" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -639,45 +631,19 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="34" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1CommandCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/src.jar!/src/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3145" column="16" selection-start="107978" selection-end="107978" vertical-scroll-proportion="0.333002">
-          <folding />
-        </state>
+        <state line="3145" column="16" selection-start="107978" selection-end="107978" vertical-scroll-proportion="0.333002" />
       </provider>
     </entry>
     <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/src.jar!/src/java/awt/MediaTracker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="11" selection-start="5361" selection-end="5361" vertical-scroll-proportion="2.045054">
-          <folding />
-        </state>
+        <state line="182" column="11" selection-start="5361" selection-end="5361" vertical-scroll-proportion="2.045054" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj">
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="26" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="54" column="34" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Command.java">
@@ -685,16 +651,40 @@
         <state line="25" column="38" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java">
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1CommandCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="0" selection-start="5861" selection-end="5861" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="17" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="785" selection-end="785" vertical-scroll-proportion="0.22912206">
+        <state line="61" column="66" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.3696498">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="0" selection-start="5861" selection-end="5861" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="64" selection-start="2702" selection-end="2758" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="0" selection-start="1805" selection-end="2072" vertical-scroll-proportion="2.3323944">
           <folding />
         </state>
       </provider>
