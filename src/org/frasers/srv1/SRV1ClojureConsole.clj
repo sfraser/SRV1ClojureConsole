@@ -8,6 +8,7 @@
   '(java.awt BorderLayout FlowLayout Color)
   '(java.awt.event ActionListener KeyListener KeyEvent)
   '(javax.swing JFrame JTextField JButton JTextArea JPanel JComboBox JScrollPane JSplitPane)
+  '(javax.swing.event ChangeListener)
   '(java.util ArrayList)
   '(org.frasers.srv1 JpegRenderer SRV1Test NetworkSRV1Reader SRV1CommandCallback))
 
@@ -41,11 +42,23 @@
 
 ;(def encoding)
 ;(def commandLog)
-(defn makeCommandButton [label cmd commandLog]
-  (doto (JButton. label) (.addActionListener
-                           (proxy [ActionListener] []
-                             (actionPerformed [event]
-                               (sendCommandToRobot cmd))))))
+
+; cmd2 is optional - we will fire the command on button up if it passed in
+(defn makeCommandButton [label cmd1 cmd2]
+  (let [pb (JButton. label)]
+    (doto pb
+      (.addActionListener
+        (proxy [ActionListener] []
+          (actionPerformed [event]
+            (sendCommandToRobot cmd1)
+            (println event)
+            )))
+      (.addChangeListener
+        (proxy [ChangeListener] []
+          (stateChanged [change]
+            ; (println change)
+            ; I AM HERE - have the cmd2 fire on button up when present
+            (when (and cmd2 (not ( .. pb getModel isArmed))) (println (.. pb getModel isArmed)) )))))))
 
 (defn convertHexToBytesInString [strHex]
   (String. (.toByteArray (BigInteger. strHex 16))))
@@ -57,9 +70,10 @@
    ;    we now send the Init command automatically at startup
    ;    ["Init" (convertHexToBytesInString "4D00FF14")]
    ["<-" "0"]
+   ["STOP" "5"]
    ["->" "."]
-   ["F" "8"]
-   ["B" "2"]
+   ["F" "8" "5"]
+   ["B" "2" "5"]
    ["LoRez" (convertHexToBytesInString "62")]
    ["HiRez" (convertHexToBytesInString "63")]
    ["HD" (convertHexToBytesInString "41")]
@@ -75,7 +89,6 @@
    ;    ["F" "4D323214"]
    ;    ["B" "4DCECE14"]
    ["Range" "R"]
-   ["STOP" "5"]
    ])
 
 (defn -main[]
@@ -109,8 +122,8 @@
     (def srv1 (NetworkSRV1Reader. SRV1Test/SRV_HOST SRV1Test/SRV_PORT SRV1Test/SRV_PROTOCOL frameListeners))
 
 
-    (doseq [[label controlProtocol] srv1LabelsAndControlProtocol]
-      (. pCmdButtons add (makeCommandButton label controlProtocol textAreaForCommands)))
+    (doseq [[label cmd1 cmd2] srv1LabelsAndControlProtocol]
+      (. pCmdButtons add (makeCommandButton label cmd1 cmd2)))
 
     (. sendButton addActionListener sendCommandAction)
 
