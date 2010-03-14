@@ -32,20 +32,8 @@ public class JpegRenderer extends Canvas implements FrameListener {
         _tracker = new MediaTracker(this);
     }
 
-    public void paint(Graphics g) {
-        if (_img == null && _imgBuf != null) {
-            // hardly the most optimal way to decode a JPEG, but...
-            _img = Toolkit.getDefaultToolkit().createImage(_imgBuf);
-            _tracker.addImage(_img, 0);
-            try {
-                _tracker.waitForID(0);
-            } catch (InterruptedException ie) {
-                __log.println("JPEG decode error " + ie);
-            }
-            if (!_tracker.isErrorID(0)) {
-            }
-            _tracker.removeImage(_img);
-        }
+    // @todo 16% of CPU is here!
+    public void paint(final Graphics g) {
 
         if (_img != null) {
             // resize frame/window, if necessary
@@ -74,7 +62,7 @@ public class JpegRenderer extends Canvas implements FrameListener {
         paint(g);
     }
 
-    public void newFrame(byte[] frame) {
+    public void newFrame(final byte[] frame) {
         // don't create a new array unless we have to to save heap churnage
         // just make one a little bigger by 10% any time we need more headroom
         if( _imgBuf.length <= frame.length ) {
@@ -83,8 +71,21 @@ public class JpegRenderer extends Canvas implements FrameListener {
         System.arraycopy(frame, 0, _imgBuf, 0, frame.length);
         if (_img != null) {
             _img.flush();
+            _img = null;
         }
-        _img = null;
-        repaint();
+
+        // hardly the most optimal way to decode a JPEG, but...
+        _img = Toolkit.getDefaultToolkit().createImage(_imgBuf);
+        _tracker.addImage(_img, 0);
+        try {
+            _tracker.waitForID(0);
+        } catch (InterruptedException ie) {
+            __log.println("JPEG decode error " + ie);
+        }
+        // if (_tracker.isErrorID(0)) {
+        _tracker.removeImage(_img);
+
+        repaint();            
+
     }
 }

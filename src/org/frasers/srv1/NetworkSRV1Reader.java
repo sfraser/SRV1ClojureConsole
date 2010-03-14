@@ -140,6 +140,8 @@ public class NetworkSRV1Reader extends Thread {
                         if(_bDebug) {
                             __log.println("frame size: " + frameSize);
                         }
+                        // @todo java.lang.NegativeArraySizeException
+                        // @todo reuse a buffer here???
                         frame = new byte[(int) frameSize];
                         framePos = 0;
                         System.arraycopy(buf, offset, frame, framePos, bytes - offset);

@@ -45,20 +45,19 @@
 
 ; cmd2 is optional - we will fire the command on button up if it passed in
 (defn makeCommandButton [label cmd1 cmd2]
-  (let [pb (JButton. label)]
+  (let [pb (JButton. label)
+        model (.. pb getModel)]
     (doto pb
-      (.addActionListener
-        (proxy [ActionListener] []
-          (actionPerformed [event]
-            (sendCommandToRobot cmd1)
-            (println event)
-            )))
       (.addChangeListener
         (proxy [ChangeListener] []
           (stateChanged [change]
             ; (println change)
-            ; I AM HERE - have the cmd2 fire on button up when present
-            (when (and cmd2 (not ( .. pb getModel isArmed))) (println (.. pb getModel isArmed)) )))))))
+            (when (.. model isArmed)
+              (sendCommandToRobot cmd1)
+              (println "cmd1 sent!"))
+            (when (and cmd2 (not (.. model isArmed)))
+              (sendCommandToRobot cmd2))))))))
+              ;(println "cmd2 sent!")
 
 (defn convertHexToBytesInString [strHex]
   (String. (.toByteArray (BigInteger. strHex 16))))
