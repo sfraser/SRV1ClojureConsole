@@ -23,7 +23,8 @@ The firmware project is online [here.](http://code.google.com/p/surveyor-srv1-fi
 
 Make sure you have IP connectivity to the robot. Set the IP and port in SRV1Test.java:
 
-`	public static String SRV_HOST = "169.254.0.10";
+`
+    public static String SRV_HOST = "169.254.0.10";
 	public static int SRV_PORT = 10001;
 `
 
