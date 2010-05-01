@@ -50,6 +50,7 @@
     (doto pb
       (.addChangeListener
         (proxy [ChangeListener] []
+          ; this code is defective - we are sending the same command sometimes three times - need to track button up/down differently
           (stateChanged [change]
             ; (println change)
             (when (.. model isArmed)
