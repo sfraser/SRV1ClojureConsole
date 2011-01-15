@@ -254,7 +254,7 @@
     </option>
   </component>
   <component name="libraryTable">
-    <library name="clojure-1.0">
+    <library name="clojure-1.2">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/lib/clojure.jar!/" />
       </CLASSES>

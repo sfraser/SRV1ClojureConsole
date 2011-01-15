@@ -10,6 +10,7 @@
   '(javax.swing JFrame JTextField JButton JTextArea JPanel JComboBox JScrollPane JSplitPane)
   '(javax.swing.event ChangeListener)
   '(java.util ArrayList)
+  '(net.miginfocom.swing MigLayout)
   '(org.frasers.srv1 JpegRenderer SRV1Test NetworkSRV1Reader SRV1CommandCallback))
 
 (def encoding_ASCII "ASCII")
@@ -44,13 +45,13 @@
 ;(def commandLog)
 
 ; cmd2 is optional - we will fire the command on button up if it passed in
-(defn makeCommandButton [label cmd1 cmd2]
+(defn makeCommandButton [label [cmd1 cmd2]]
   (let [pb (JButton. label)
         model (.. pb getModel)]
     (doto pb
       (.addChangeListener
         (proxy [ChangeListener] []
-          ; this code is defective - we are sending the same command sometimes three times - need to track button up/down differently
+          ;;; this code is defective - we are sending the same command sometimes three times - need to track button up/down differently
           (stateChanged [change]
             ; (println change)
             (when (.. model isArmed)
@@ -65,20 +66,20 @@
 
 
 (def srv1LabelsAndControlProtocol
-  [["Lasers ON" "l"]
-   ["Lasers OFF" "L"]
+  [["Lasers ON" ["l"] "cell 0 0"]
+   ["Lasers OFF" ["L"]"cell 0 1"]
    ;    we now send the Init command automatically at startup
    ;    ["Init" (convertHexToBytesInString "4D00FF14")]
-   ["<-" "0"]
-   ["STOP" "5"]
-   ["->" "."]
-   ["F" "8" "5"]
-   ["B" "2" "5"]
-   ["LoRez" (convertHexToBytesInString "62")]
-   ["HiRez" (convertHexToBytesInString "63")]
-   ["HD" (convertHexToBytesInString "41")]
-   ["+" (convertHexToBytesInString "2B")]
-   ["-" (convertHexToBytesInString "2D")]
+   ["<-" ["0"]]
+   ["STOP" ["5"]]
+   ["->" ["."]]
+   ["F" ["8" "5"]]
+   ["B" ["2" "5"]]
+   ["LoRez" [(convertHexToBytesInString "62")]]
+   ["HiRez" [(convertHexToBytesInString "63")]]
+   ["HD" [(convertHexToBytesInString "41")]]
+   ["+" [(convertHexToBytesInString "2B")]]
+   ["-" [(convertHexToBytesInString "2D")]]
 
    ;    ["L 20" (convertHexToBytesInString "4D007F14" )]
    ;    ["R 20" (convertHexToBytesInString "4DFF0014" )]
@@ -88,7 +89,7 @@
    ;    ["R 20" "4DFF0014"]
    ;    ["F" "4D323214"]
    ;    ["B" "4DCECE14"]
-   ["Range" "R"]
+   ["Range" ["R"]]
    ])
 
 (defn -main[]
@@ -110,7 +111,7 @@
         pCmdLine (doto (JPanel.) (.add encoding) (.add commandField) (.add sendButton))
         pMain (doto (JPanel. (BorderLayout.)) (.add "North" pCmdLine) (.add "Center" (JScrollPane. textAreaForCommands)))
 
-        pCmdButtons (JPanel. (FlowLayout.))
+        pCmdButtons (JPanel. (MigLayout. "" "[100:pref,fill]" "[100:pref,fill]"))
         pConsoleAndButtons (doto (JPanel. (BorderLayout.)) (.add "Center" jpegRenderer) (.add "South" pCmdButtons))
 
         splitPane (doto (JSplitPane. JSplitPane/HORIZONTAL_SPLIT) 
@@ -122,8 +123,8 @@
     (def srv1 (NetworkSRV1Reader. SRV1Test/SRV_HOST SRV1Test/SRV_PORT SRV1Test/SRV_PROTOCOL frameListeners))
 
 
-    (doseq [[label cmd1 cmd2] srv1LabelsAndControlProtocol]
-      (. pCmdButtons add (makeCommandButton label cmd1 cmd2)))
+    (doseq [[label cmds migString] srv1LabelsAndControlProtocol]
+      (. pCmdButtons add (makeCommandButton label cmds) migString))
 
     (. sendButton addActionListener sendCommandAction)
 
