@@ -65,16 +65,17 @@
   (String. (.toByteArray (BigInteger. strHex 16))))
 
 
+; [ label [cmd1 cmd2] optionalMigString]
 (def srv1LabelsAndControlProtocol
   [["Lasers ON" ["l"] "cell 0 0"]
    ["Lasers OFF" ["L"]"cell 0 1"]
    ;    we now send the Init command automatically at startup
    ;    ["Init" (convertHexToBytesInString "4D00FF14")]
-   ["<-" ["0"]]
-   ["STOP" ["5"]]
-   ["->" ["."]]
-   ["F" ["8" "5"]]
-   ["B" ["2" "5"]]
+   ["<-" ["0"] "cell 1 1"]
+   ["STOP" ["5"] "cell 2 1"]
+   ["->" ["."] "cell 3 1"]
+   ["Fwd" ["8" "5"] "cell 2 0"]
+   ["Back" ["2" "5"]"cell 2 2"]
    ["LoRez" [(convertHexToBytesInString "62")]]
    ["HiRez" [(convertHexToBytesInString "63")]]
    ["HD" [(convertHexToBytesInString "41")]]
