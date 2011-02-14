@@ -25,6 +25,9 @@ public class JpegRenderer extends Canvas implements FrameListener {
     private int _w;
     private int _h;
 
+    private int _imagex;
+    private int _imagey;
+
     final private Frame _frame;
 
     public JpegRenderer( final Frame p_frame ) {
@@ -32,28 +35,10 @@ public class JpegRenderer extends Canvas implements FrameListener {
         _tracker = new MediaTracker(this);
     }
 
-    // @todo 16% of CPU is here!
-    public void paint(final Graphics g) {
+    public void paint(final Graphics p_graphics) {
 
         if (_img != null) {
-            // resize frame/window, if necessary
-            if (_w != _img.getWidth(this) || _h != _img.getHeight(this)) {
-                _w = _img.getWidth(this);
-                _h = _img.getHeight(this);
-                if (_w <= 25) {
-                    _w = 320;
-                }
-                if (_h <= 25) {
-                    _h = 240;
-                }
-                this.setSize(_w, _h);
-                _frame.pack();
-            }
-
-            // keep image centered, no matter the window size
-            final int x = Math.max((this.getWidth() - _w) / 2, 0);
-            final int y = Math.max((this.getHeight() - _h) / 2, 0);
-            g.drawImage(_img, x, y, null);
+            p_graphics.drawImage(_img, _imagex, _imagey, null);
         }
     }
 
@@ -69,23 +54,50 @@ public class JpegRenderer extends Canvas implements FrameListener {
             _imgBuf = new byte[frame.length + (frame.length/10)];
         }
         System.arraycopy(frame, 0, _imgBuf, 0, frame.length);
+
+        // @todo determine if this is really needed
+        /*
         if (_img != null) {
             _img.flush();
-            _img = null;
         }
+        */
 
         // hardly the most optimal way to decode a JPEG, but...
-        _img = Toolkit.getDefaultToolkit().createImage(_imgBuf);
-        _tracker.addImage(_img, 0);
+        final Image tempImage = Toolkit.getDefaultToolkit().createImage(_imgBuf);
+        _tracker.addImage(tempImage, 0);
         try {
             _tracker.waitForID(0);
         } catch (InterruptedException ie) {
             __log.println("JPEG decode error " + ie);
         }
         // if (_tracker.isErrorID(0)) {
+        _img = tempImage;
+        _SetImageSizeAndPosition();
         _tracker.removeImage(_img);
 
-        repaint();            
+        repaint();
+    }
 
+    /**
+     * Keeps the image centered and sized right
+     */
+    private void _SetImageSizeAndPosition(){
+        // resize frame/window, if necessary
+        if (_w != _img.getWidth(this) || _h != _img.getHeight(this)) {
+            _w = _img.getWidth(this);
+            _h = _img.getHeight(this);
+            if (_w <= 25) {
+                _w = 320;
+            }
+            if (_h <= 25) {
+                _h = 240;
+            }
+            this.setSize(_w, _h);
+            _frame.pack();
+        }
+
+        // keep image centered, no matter the window size
+        _imagex = Math.max((this.getWidth() - _w) / 2, 0);
+        _imagey = Math.max((this.getHeight() - _h) / 2, 0);
     }
 }

@@ -8,7 +8,6 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -92,7 +91,7 @@ public class NetworkSRV1Reader extends Thread {
 
                     // run through the command queue befure requesting a new frame
                     while (!_commandQueue.isEmpty()) {
-                        SRV1Command c = (SRV1Command) _commandQueue.remove(0);
+                        SRV1Command c = _commandQueue.remove(0);
                         _Send(c.getBytes());
                         // Thread.sleep(1000);
                         byte[] cmdResponse = new byte[SRV1Test.MTU];

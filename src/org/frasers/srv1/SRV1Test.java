@@ -20,10 +20,14 @@ package org.frasers.srv1;
  *  GNU General Public License for more details (www.gnu.org/licenses)
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import java.io.*;
-import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SRV1Test
 {
@@ -37,17 +41,12 @@ public class SRV1Test
 	static final int SO_TIMEOUT = 2000;  // socket timeout (ms)
 	static final int MTU = 2048; // must be >= SRV-1 WiPort MTU (which has a default of 1400)
 
-	private static PrintStream log = System.out;
-	private static NetworkSRV1Reader srv1;
-
-	private static Frame f;
-
-	public static final String CMD_DELIM = ",";  // used to send multiple commands in one shot
+    public static final String CMD_DELIM = ",";  // used to send multiple commands in one shot
 	public static final String ENC_ASCII = "ASCII";
 	public static final String ENC_HEX = "Hex";
 
-	public static void main(String[] cmdLine) {
-		Map args = _ParseCommandLine(cmdLine);
+	public static void main(final String[] cmdLine) {
+		final Map args = _ParseCommandLine(cmdLine);
 		if (args.containsKey("usage") || args.containsKey("help")) {
 			System.out.println("Command Line Options:");
 			System.out.println("  -remote_addr : SRV-1 IP Address");
@@ -62,25 +61,25 @@ public class SRV1Test
         if (args.containsKey("protocol")) SRV_PROTOCOL = ((String) args.get("protocol")).toUpperCase();
         if (args.containsKey("local_port")) UDP_LOCAL_PORT = _ToInt((String) args.get("local_port"), 10001);
 
-        f = new Frame("SRV-1 Console - TCP/UDP");
+        final Frame f = new Frame("SRV-1 Console - TCP/UDP");
 
-        final Canvas jpegRender = new JpegRenderer(f);
+        final JpegRenderer jpegRender = new JpegRenderer(f);
         jpegRender.setSize(320, 240);
         
         f.setBackground(Color.WHITE);
         f.setLayout(new BorderLayout(3, 3));
         f.add("Center", jpegRender);
 
-        java.util.List frameListeners = new ArrayList();
+        List<FrameListener> frameListeners = new ArrayList();
         frameListeners.add(jpegRender);
         if (args.containsKey("archive")) {
             frameListeners.add(new SimpleFrameArchiver((String) args.get("archive")));
         }
 
-        srv1 = new NetworkSRV1Reader(SRV_HOST, SRV_PORT, SRV_PROTOCOL, frameListeners);
+        final NetworkSRV1Reader srv1 = new NetworkSRV1Reader(SRV_HOST, SRV_PORT, SRV_PROTOCOL, frameListeners);
         srv1.start();
 
-        f.add("South", createBasicCommandPanel(srv1));
+        f.add("South", _CreateBasicCommandPanel(srv1));
         f.pack();
         f.setVisible(true);
         f.repaint();
@@ -90,39 +89,36 @@ public class SRV1Test
                     System.exit(0);
                 }
             });
-
-
-
     }
 
-    private static Map _ParseCommandLine(String[] cmdLine)
+    private static Map _ParseCommandLine(final String[] p_cmdLine)
     {
-        Map args = new HashMap();
-        int count = cmdLine.length;
+        final Map<String, Object> args = new HashMap<String,Object>();
+        int count = p_cmdLine.length;
         for (int i = 0; i < count; i++) {
-            if (cmdLine[i].startsWith("-")) {
+            if (p_cmdLine[i].startsWith("-")) {
                 // if next arg. starts with dash, use "true" as the value, otherwise
                 // use the string value that follows this arg.
-                if (i+1 >= count || cmdLine[i+1].startsWith("-"))
-                    args.put(cmdLine[i].substring(1), Boolean.TRUE);
+                if (i+1 >= count || p_cmdLine[i+1].startsWith("-"))
+                    args.put(p_cmdLine[i].substring(1), Boolean.TRUE);
                 else if (i+1 < count)
-                    args.put(cmdLine[i].substring(1), cmdLine[++i]);
+                    args.put(p_cmdLine[i].substring(1), p_cmdLine[++i]);
             }
         }
         return args;
     }
 
-    private static int _ToInt(String s, int deflt)
+    private static int _ToInt(final String p_sStringToParse, final int p_deflat)
     {
-        int i = deflt;
-        try { i = Integer.parseInt(s); }
-        catch (Exception e) { i = deflt; }
+        int i;
+        try { i = Integer.parseInt(p_sStringToParse); }
+        catch (Exception e) { i = p_deflat; }
         return i;
     }
 
     // Create a GUI panel that offers basic support for sending of SRV-1 commands
     // and response display.
-    public static Component createBasicCommandPanel( final NetworkSRV1Reader p_srv1 )
+    private static Component _CreateBasicCommandPanel( final NetworkSRV1Reader p_srv1 )
     {
         final Choice encoding = new Choice();
         encoding.add(ENC_ASCII);
@@ -133,23 +129,26 @@ public class SRV1Test
         final TextArea commandLog = new TextArea("", 5, 10);
 
         final ActionListener sendCommandAction = new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    String c = commandField.getText();
-                    String[] commands = c.split(CMD_DELIM);
+                public void actionPerformed(final ActionEvent e) {
+                    final String c = commandField.getText();
+                    final String[] commands = c.split(CMD_DELIM);
 
-                    for (int i = 0; i < commands.length; i++) {
-                        String cmdString = commands[i].trim();
-                        byte[] cmdBytes = buildCommand(cmdString, encoding.getSelectedItem());
-                        SRV1CommandCallback cb = new SRV1CommandCallback() {
-                                public void success(String cmdString, String response) {
-                                    commandLog.append("[" + cmdString + "] " +
-                                                      response + System.getProperty("line.separator"));
-                                    try {
-                                        commandLog.setCaretPosition(Integer.MAX_VALUE);
-                                    } catch (IllegalComponentStateException ise) { }
+                    for (String command : commands) {
+                        final String cmdString = command.trim();
+                        byte[] cmdBytes = _BuildCommand(cmdString, encoding.getSelectedItem());
+                        final SRV1CommandCallback cb = new SRV1CommandCallback() {
+                            public void success(String cmdString, String response) {
+                                commandLog.append("[" + cmdString + "] " +
+                                        response + System.getProperty("line.separator"));
+                                try {
+                                    commandLog.setCaretPosition(Integer.MAX_VALUE);
+                                } catch (IllegalComponentStateException ise) {
                                 }
-                                public void failure(String cmdString) { }
-                            };
+                            }
+
+                            public void failure(String cmdString) {
+                            }
+                        };
 
                         p_srv1.sendCommand(cmdString, cmdBytes, cb);
                     }
@@ -181,13 +180,14 @@ public class SRV1Test
         return p;
     }
 
-    private static byte[] buildCommand(String text, String encoding)
+    private static byte[] _BuildCommand( final String p_text,
+                                        final String p_encoding)
     {
         try {
-            if (ENC_HEX.equalsIgnoreCase(encoding)) {
-                return (new java.math.BigInteger(text, 16)).toByteArray();
+            if (ENC_HEX.equalsIgnoreCase(p_encoding)) {
+                return (new java.math.BigInteger(p_text, 16)).toByteArray();
             } else {
-                return text.getBytes("US-ASCII");
+                return p_text.getBytes("US-ASCII");
             }
         } catch (Exception e) {
             return null;
