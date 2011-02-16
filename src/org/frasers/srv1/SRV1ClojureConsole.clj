@@ -62,15 +62,11 @@
     (doto pb
       (.addChangeListener
         (proxy [ChangeListener] []
-          ;;; this code is defective - we are sending the same command sometimes three times - need to track button up/down differently
           (stateChanged [change]
-            ; (println change)
             (when (pbdown model)
               (sendCommandToRobot cmd1))
-              ;(println "cmd1 sent!"))
             (when (and cmd2 (pbup model))
               (sendCommandToRobot cmd2))))))))
-              ;(println "cmd2 sent!")
 
 (defn convertHexToBytesInString [strHex]
   (String. (.toByteArray (BigInteger. strHex 16))))
