@@ -44,6 +44,17 @@
 ;(def encoding)
 ;(def commandLog)
 
+(defn pbdown [model]
+  (and
+    (.. model isArmed)
+    (.. model isPressed)))
+
+(defn pbup [model]
+  (and
+    (not (.. model isArmed))
+    (not (.. model isPressed))))
+
+
 ; cmd2 is optional - we will fire the command on button up if it passed in
 (defn makeCommandButton [label [cmd1 cmd2]]
   (let [pb (JButton. label)
@@ -54,10 +65,10 @@
           ;;; this code is defective - we are sending the same command sometimes three times - need to track button up/down differently
           (stateChanged [change]
             ; (println change)
-            (when (.. model isArmed)
-              (sendCommandToRobot cmd1)
-              (println "cmd1 sent!"))
-            (when (and cmd2 (not (.. model isArmed)))
+            (when (pbdown model)
+              (sendCommandToRobot cmd1))
+              ;(println "cmd1 sent!"))
+            (when (and cmd2 (pbup model))
               (sendCommandToRobot cmd2))))))))
               ;(println "cmd2 sent!")
 
