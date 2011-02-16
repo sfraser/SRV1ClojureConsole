@@ -41,9 +41,6 @@
 
 
 
-;(def encoding)
-;(def commandLog)
-
 (defn pbdown [model]
   (and
     (.. model isArmed)
