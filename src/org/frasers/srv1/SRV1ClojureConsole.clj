@@ -102,7 +102,6 @@
 
 (defn -main[]
 
-  (prn "test")
   (let [f (JFrame. "SRV-1 Console - Clojure")
         jpegRenderer (doto (JpegRenderer. f) (.setSize 320 240))
         frameListeners (doto (ArrayList.) (.add jpegRenderer))
