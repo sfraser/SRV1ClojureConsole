@@ -40,29 +40,19 @@
             (. commandLog setCaretPosition Integer/MAX_VALUE))))))
 
 
-
-(defn pbdown [model]
-  (and
-    (.. model isArmed)
-    (.. model isPressed)))
-
-(defn pbup [model]
-  (and
-    (not (.. model isArmed))
-    (not (.. model isPressed))))
-
-
 ; cmd2 is optional - we will fire the command on button up if it passed in
 (defn makeCommandButton [label [cmd1 cmd2]]
   (let [pb (JButton. label)
-        model (.. pb getModel)]
+        model (.getModel pb)
+        up    #(and (.isArmed model) (.isPressed model))
+        down  #(and (not (.isArmed model)) (not (.isPressed model))) ]
     (doto pb
       (.addChangeListener
         (proxy [ChangeListener] []
-          (stateChanged [change]
-            (when (pbdown model)
+          (stateChanged [_]
+            (when (down)
               (sendCommandToRobot cmd1))
-            (when (and cmd2 (pbup model))
+            (when (and cmd2 (up))
               (sendCommandToRobot cmd2))))))))
 
 (defn convertHexToBytesInString [strHex]
