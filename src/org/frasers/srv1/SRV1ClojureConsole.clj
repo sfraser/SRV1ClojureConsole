@@ -44,12 +44,12 @@
 (defn makeCommandButton [label [cmd1 cmd2]]
   (let [pb (JButton. label)
         model (.getModel pb)
-        up    #(and (.isArmed model) (.isPressed model))
-        down  #(and (not (.isArmed model)) (not (.isPressed model))) ]
+        down #(and (.isArmed model) (.isPressed model))
+        up   #(and (not (.isArmed model)) (not (.isPressed model))) ]
     (doto pb
       (.addChangeListener
-        (proxy [ChangeListener] []
-          (stateChanged [_]
+        (reify ChangeListener
+          (stateChanged [_ _]
             (when (down)
               (sendCommandToRobot cmd1))
             (when (and cmd2 (up))
