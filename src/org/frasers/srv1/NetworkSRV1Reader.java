@@ -22,9 +22,9 @@ public class NetworkSRV1Reader extends Thread {
 
     private static final byte[] __FRAME_HEAD = { '#', '#', 'I', 'M', 'J' };
 
-    private InetAddress _host;  // SRV-1 connection information
-    private int _port;
-    private String _transport;
+    final private InetAddress _host;  // SRV-1 connection information
+    final private int _port;
+    final private String _transport;
     private Socket _sock = null;
     private DatagramSocket _dgs = null;
     private InputStream _is = null;  // only applicable in TCP mode
@@ -33,13 +33,13 @@ public class NetworkSRV1Reader extends Thread {
     private boolean _isConnected = false;
     private boolean _shouldRun = true;
     private DatagramPacket _frameRequest = null;
-    final private List<FrameListener> _frameListeners;
+    final private FrameListener _frameListener;
     final private List<SRV1Command> _commandQueue = Collections.synchronizedList(new ArrayList<SRV1Command>());
 
     public NetworkSRV1Reader( final String p_sHost,
                               final int p_port,
                               final String p_sTransport,
-                              final List<FrameListener> p_frameListeners) {
+                              final FrameListener p_frameListeners) {
         try {
             _host = InetAddress.getByName(p_sHost);
         } catch (Exception e) {
@@ -47,9 +47,18 @@ public class NetworkSRV1Reader extends Thread {
         }
         _port = p_port;
         _transport = p_sTransport;
-        _frameListeners = p_frameListeners;
+        _frameListener = p_frameListeners;
         _frameRequest = new DatagramPacket(new byte[]{(byte) 'I'}, 1, _host, _port);
         __log.println("[NetworkSRV1Reader] - " + p_sHost + ":" + p_port + " (" + p_sTransport + ")");
+
+        _Open();
+
+        // if still not connected BAIL
+        if(!_isConnected) {
+            __log.println("[NetworkSRV1Reader] - unable to connect");
+            throw new RuntimeException("Unable to connect!");
+        }
+
     }
 
     public boolean sendCommand(String cmdString, byte[] cmdBytes, SRV1CommandCallback cb) {
@@ -75,16 +84,6 @@ public class NetworkSRV1Reader extends Thread {
             // 2) Send frame request
             // 3) Read frame data
             // 4) goto step 1
-
-            if (!_isConnected) {
-                _Open();
-
-                // if still not connected BAIL
-                if(!_isConnected) {
-                    __log.println("[NetworkSRV1Reader] - error in main loop - unable to connect");
-                    return;
-                }
-            }
 
             try {
                 if (frame == null) {
@@ -155,10 +154,7 @@ public class NetworkSRV1Reader extends Thread {
                     } else {
                         System.arraycopy(buf, 0, frame, framePos, leftToRead);
 
-                        // ship this frame out to the frame listener(_sock)
-                        for (FrameListener frameListener : _frameListeners) {
-                            frameListener.newFrame(frame);
-                        }
+                        _frameListener.newFrame(frame);
 
                         frameCount++;
                         long elapsed = (System.currentTimeMillis() - start) / 1000; // _sock
@@ -169,14 +165,7 @@ public class NetworkSRV1Reader extends Thread {
                         framePos = 0;
                         frame = null;
                     }
-                } else {
-                    // no bytes ready, delay
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException ie) {
-                    }
                 }
-
             } catch (Throwable t) {
                 __log.println("[NetworkSRV1Reader] - error in main loop - " + t);
                 t.printStackTrace();

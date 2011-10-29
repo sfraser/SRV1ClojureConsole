@@ -35,16 +35,29 @@ public class JpegRenderer extends Canvas implements FrameListener {
         _tracker = new MediaTracker(this);
     }
 
+    /**
+     * Identical in implementation to update, but we duplicate the code here to avoid the extra
+     * method call
+     * @param p_graphics Graphics context to paint on
+     * @see #update(java.awt.Graphics)
+     */
     public void paint(final Graphics p_graphics) {
-
         if (_img != null) {
             p_graphics.drawImage(_img, _imagex, _imagey, null);
         }
     }
 
+    /**
+     * Identical in implementation to paint, but we duplicate the code here to avoid the extra
+     * method call
+     * @param p_graphics Graphics context to paint on
+     * @see #paint(java.awt.Graphics)
+     */
     @Override
-    public void update(Graphics g) {
-        paint(g);
+    public void update(final Graphics p_graphics) {
+        if (_img != null) {
+            p_graphics.drawImage(_img, _imagex, _imagey, null);
+        }
     }
 
     public void newFrame(final byte[] frame) {

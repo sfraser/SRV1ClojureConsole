@@ -24,9 +24,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class SRV1Test
@@ -53,7 +51,6 @@ public class SRV1Test
 		    System.out.println("  -remote_port : SRV-1 Port");
             System.out.println("  -protocol    : TCP or UDP");
             System.out.println("  -local_port  : Local port (applicable to UDP only)");
-            System.out.println("  -archive     : Archive directory where JPEG frames will be saved");
             return;
         }
         if (args.containsKey("remote_addr"))    SRV_HOST = (String) args.get("remote_addr");
@@ -70,13 +67,7 @@ public class SRV1Test
         f.setLayout(new BorderLayout(3, 3));
         f.add("Center", jpegRender);
 
-        List<FrameListener> frameListeners = new ArrayList();
-        frameListeners.add(jpegRender);
-        if (args.containsKey("archive")) {
-            frameListeners.add(new SimpleFrameArchiver((String) args.get("archive")));
-        }
-
-        final NetworkSRV1Reader srv1 = new NetworkSRV1Reader(SRV_HOST, SRV_PORT, SRV_PROTOCOL, frameListeners);
+        final NetworkSRV1Reader srv1 = new NetworkSRV1Reader(SRV_HOST, SRV_PORT, SRV_PROTOCOL, jpegRender);
         srv1.start();
 
         f.add("South", _CreateBasicCommandPanel(srv1));

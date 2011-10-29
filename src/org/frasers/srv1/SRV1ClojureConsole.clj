@@ -91,7 +91,6 @@
 
   (let [f (JFrame. "SRV-1 Console - Clojure")
         jpegRenderer (doto (JpegRenderer. f) (.setSize 320 240))
-        frameListeners (doto (ArrayList.) (.add jpegRenderer))
         commandField (JTextField. 20)
         sendButton (JButton. "Send")
         textAreaForCommands (var-get (def commandLog (JTextArea. "" 5 10)))
@@ -114,7 +113,7 @@
         ]
 
     ; set our global ref to the robot
-    (def srv1 (NetworkSRV1Reader. SRV1Test/SRV_HOST SRV1Test/SRV_PORT SRV1Test/SRV_PROTOCOL frameListeners))
+    (def srv1 (NetworkSRV1Reader. SRV1Test/SRV_HOST SRV1Test/SRV_PORT SRV1Test/SRV_PROTOCOL jpegRenderer))
 
 
     (doseq [[label cmds migString] srv1LabelsAndControlProtocol]

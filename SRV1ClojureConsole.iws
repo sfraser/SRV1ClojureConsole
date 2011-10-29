@@ -15,16 +15,18 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="01ef0f1a-9a3e-48d2-933d-92713878e6f5" name="Default" comment="">
+    <list default="true" readonly="true" id="01ef0f1a-9a3e-48d2-933d-92713878e6f5" name="Default" comment="made some minot">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SRV1ClojureConsole.iws" afterPath="$PROJECT_DIR$/SRV1ClojureConsole.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SRV1ClojureConsole.ipr" afterPath="$PROJECT_DIR$/SRV1ClojureConsole.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" />
     </list>
-    <ignored path=".idea/workspace.xml" />
     <ignored path="SRV1ClojureConsole.iws" />
-    <ignored path="$USER_HOME_GRIFFON$/" />
     <ignored path="$USER_HOME_GRAILS$/" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$USER_HOME_GRIFFON$/" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,25 +91,16 @@
       <file leaf-file-name="SRV1Test.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="35" selection-start="2111" selection-end="2111" vertical-scroll-proportion="0.0">
+            <state line="71" column="52" selection-start="3042" selection-end="3042" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameListener.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FrameListener.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="17" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MigLayoutTesting.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/MigLayoutTesting.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="275" selection-end="275" vertical-scroll-proportion="0.28025478">
+            <state line="13" column="16" selection-start="207" selection-end="207" vertical-scroll-proportion="0.22099447">
               <folding />
             </state>
           </provider>
@@ -134,7 +127,7 @@
       <file leaf-file-name="JpegRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="2010" selection-end="2010" vertical-scroll-proportion="0.0">
+            <state line="62" column="0" selection-start="1581" selection-end="1581" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -143,7 +136,7 @@
       <file leaf-file-name="NetworkSRV1Reader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="0" selection-start="9867" selection-end="9867" vertical-scroll-proportion="0.0">
+            <state line="36" column="72" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -152,7 +145,7 @@
       <file leaf-file-name="SRV1ClojureConsole.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="38" selection-start="4442" selection-end="4442" vertical-scroll-proportion="0.0">
+            <state line="93" column="0" selection-start="3225" selection-end="3225" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -187,10 +180,10 @@
         <option value="$PROJECT_DIR$/README.markdown" />
         <option value="$PROJECT_DIR$/lib/clojure.jar!/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/MigLayoutTesting.java" />
-        <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" />
-        <option value="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java" />
+        <option value="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" />
+        <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" />
       </list>
     </option>
   </component>
@@ -349,28 +342,28 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Favorites" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="66" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="109" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="162" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="204" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="true" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="75" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="171" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="82" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="716" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="712" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="80" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="106" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="178" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="804" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="800" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="176" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="201" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -624,27 +617,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1054" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43576017" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23205128" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655245" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32564104" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993576" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UML Diagrams" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28586724" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30641025" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.282697" sideWeight="0.6590214" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23890968" sideWeight="0.5567452" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30299786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32063264" sideWeight="0.7589744" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2423077" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Graphical Navigator" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -671,7 +664,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="experimenting with using MigLayout to make this not look so gosh darn awful" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix for defect - I had switched the up and down buttons around&#10;also updating code to use the Clojure 1.2 new and improved &quot;reify&quot; instead&#10;of proxy." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -691,6 +684,13 @@
     <MESSAGE value="note about defect in new button - the button is sending the command&#10;sometimes 3 times. Twice on putton down, and once on button up." />
     <MESSAGE value="updating to clojure 1.2 from http://clojure.org/downloads" />
     <MESSAGE value="experimenting with using MigLayout to make this not look so gosh darn awful" />
+    <MESSAGE value="sped up the graphics painting code a good bit - it barely shows on the &#10;profile anymore. Still have an occassional bug where the first image painted&#10;is not centered, but it will go away once you resize the window.&#10;&#10;Would like to look into double buffering later." />
+    <MESSAGE value="awesome, finally fixed the annoying defect where the left/right buttons&#10;sent their commands more than once. I needed to check two states on the&#10;model, per the documentation on ButtonModel: http://download.oracle.com/javase/6/docs/api/javax/swing/ButtonModel.html&#10;&#10;isArmed *and* isPressed" />
+    <MESSAGE value="removing unneeded comments" />
+    <MESSAGE value="removing more unneeded comments" />
+    <MESSAGE value="removing yet more unneeded comments" />
+    <MESSAGE value="making the makeCommandButton function even more self contained by&#10;wrapping calls to java in anonymous functions set up in the let. I like this&#10;as we don't have those external functions now cluttering things up and&#10;also expecting you to pass in a param - now the button model is closed&#10;over." />
+    <MESSAGE value="fix for defect - I had switched the up and down buttons around&#10;also updating code to use the Clojure 1.2 new and improved &quot;reify&quot; instead&#10;of proxy." />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -734,43 +734,34 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/clojure.jar!/clojure/core_proxy.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="291" column="10" selection-start="14153" selection-end="14153" vertical-scroll-proportion="-0.40874037" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.markdown">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="132" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.3235955" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/clojure.jar!/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.15351813" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/miglayout-3.7.3.1-swing.jar!/net/miginfocom/swing/MigLayout.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="26" selection-start="171" selection-end="171" vertical-scroll-proportion="0.11162791" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
+    <entry file="jar://$PROJECT_DIR$/lib/clojure.jar!/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.16" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java">
+    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar!/java/awt/EventDispatchThread.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="0" selection-start="9867" selection-end="9867" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="69" column="0" selection-start="3103" selection-end="3103" vertical-scroll-proportion="0.8348624" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/clojure.jar!/clojure/core_deftype.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="10" selection-start="2321" selection-end="2321" vertical-scroll-proportion="-0.71330273" />
+      </provider>
+    </entry>
+    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar!/javax/swing/event/ChangeListener.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="24" selection-start="166" selection-end="166" vertical-scroll-proportion="0.10643016" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/clojure.jar!/clojure/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="249" column="1" selection-start="7221" selection-end="7221" vertical-scroll-proportion="0.3325688" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Command.java">
@@ -780,42 +771,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1CommandCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="0" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="179" selection-end="219" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="4" column="0" selection-start="179" selection-end="219" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj">
+    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/awt/Canvas.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="38" selection-start="4442" selection-end="4442" vertical-scroll-proportion="0.0">
+        <state line="20" column="16" selection-start="779" selection-end="779" vertical-scroll-proportion="0.33628318">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="2010" selection-end="2010" vertical-scroll-proportion="0.0">
+        <state line="62" column="0" selection-start="1581" selection-end="1581" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="35" selection-start="2111" selection-end="2111" vertical-scroll-proportion="0.0">
+        <state line="71" column="52" selection-start="3042" selection-end="3042" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="72" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="0" selection-start="3225" selection-end="3225" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/MigLayoutTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="275" selection-end="275" vertical-scroll-proportion="0.28025478">
+        <state line="18" column="97" selection-start="408" selection-end="408" vertical-scroll-proportion="0.3756906">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="16" selection-start="207" selection-end="207" vertical-scroll-proportion="0.22099447">
           <folding />
         </state>
       </provider>
