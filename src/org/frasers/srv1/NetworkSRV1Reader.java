@@ -11,7 +11,6 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
  * @author sfraser
  */
 public class NetworkSRV1Reader extends Thread {
@@ -20,7 +19,7 @@ public class NetworkSRV1Reader extends Thread {
 
     private static PrintStream __log = System.out;
 
-    private static final byte[] __FRAME_HEAD = { '#', '#', 'I', 'M', 'J' };
+    private static final byte[] __FRAME_HEAD = {'#', '#', 'I', 'M', 'J'};
 
     final private InetAddress _host;  // SRV-1 connection information
     final private int _port;
@@ -36,10 +35,10 @@ public class NetworkSRV1Reader extends Thread {
     final private FrameListener _frameListener;
     final private List<SRV1Command> _commandQueue = Collections.synchronizedList(new ArrayList<SRV1Command>());
 
-    public NetworkSRV1Reader( final String p_sHost,
-                              final int p_port,
-                              final String p_sTransport,
-                              final FrameListener p_frameListeners) {
+    public NetworkSRV1Reader(final String p_sHost,
+                             final int p_port,
+                             final String p_sTransport,
+                             final FrameListener p_frameListeners) {
         try {
             _host = InetAddress.getByName(p_sHost);
         } catch (Exception e) {
@@ -54,7 +53,7 @@ public class NetworkSRV1Reader extends Thread {
         _Open();
 
         // if still not connected BAIL
-        if(!_isConnected) {
+        if (!_isConnected) {
             __log.println("[NetworkSRV1Reader] - unable to connect");
             throw new RuntimeException("Unable to connect!");
         }
@@ -129,13 +128,13 @@ public class NetworkSRV1Reader extends Thread {
                         int offset = __FRAME_HEAD.length;
                         long frameSize = 0;
                         byte frameDim = buf[offset++];
-                        if(_bDebug) {
+                        if (_bDebug) {
                             __log.println("frame dim: " + frameDim);
                         }
                         for (int i = 0; i < 4; i++) {
                             frameSize += (0xff & buf[offset++]) << (8 * i);
                         }
-                        if(_bDebug) {
+                        if (_bDebug) {
                             __log.println("frame size: " + frameSize);
                         }
                         // @todo java.lang.NegativeArraySizeException
@@ -159,7 +158,7 @@ public class NetworkSRV1Reader extends Thread {
                         frameCount++;
                         long elapsed = (System.currentTimeMillis() - start) / 1000; // _sock
                         float fps = frameCount / (elapsed + 1);
-                        if(_bDebug) {
+                        if (_bDebug) {
                             __log.println("read full frame, size: " + frame.length + ", " + fps + " fps");
                         }
                         framePos = 0;
@@ -223,7 +222,7 @@ public class NetworkSRV1Reader extends Thread {
             _os.write(dp.getData());
             _os.flush();
         }
-    //log.println("_send(DP) - " + dp.getData().length + " bytes");
+        //log.println("_send(DP) - " + dp.getData().length + " bytes");
     }
 
     private void _Send(byte[] msg) throws Exception {
@@ -236,7 +235,7 @@ public class NetworkSRV1Reader extends Thread {
             _os.flush();
             // log.println( format( "Wrote [%_sock] over TCP", msg ));
         }
-    //log.println("_send() - " + msg.length + " bytes");
+        //log.println("_send() - " + msg.length + " bytes");
     }
 
     private boolean _Open() {

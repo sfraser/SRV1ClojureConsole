@@ -6,10 +6,8 @@
 package org.frasers.srv1;
 
 /**
- *
  * @author sfraser
  */
-public interface FrameListener
-{
+public interface FrameListener {
     public void newFrame(byte[] frame);
 }

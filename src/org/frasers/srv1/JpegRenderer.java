@@ -30,7 +30,7 @@ public class JpegRenderer extends Canvas implements FrameListener {
 
     final private Frame _frame;
 
-    public JpegRenderer( final Frame p_frame ) {
+    public JpegRenderer(final Frame p_frame) {
         _frame = p_frame;
         _tracker = new MediaTracker(this);
     }
@@ -38,6 +38,7 @@ public class JpegRenderer extends Canvas implements FrameListener {
     /**
      * Identical in implementation to update, but we duplicate the code here to avoid the extra
      * method call
+     *
      * @param p_graphics Graphics context to paint on
      * @see #update(java.awt.Graphics)
      */
@@ -50,6 +51,7 @@ public class JpegRenderer extends Canvas implements FrameListener {
     /**
      * Identical in implementation to paint, but we duplicate the code here to avoid the extra
      * method call
+     *
      * @param p_graphics Graphics context to paint on
      * @see #paint(java.awt.Graphics)
      */
@@ -63,8 +65,8 @@ public class JpegRenderer extends Canvas implements FrameListener {
     public void newFrame(final byte[] frame) {
         // don't create a new array unless we have to to save heap churnage
         // just make one a little bigger by 10% any time we need more headroom
-        if( _imgBuf.length <= frame.length ) {
-            _imgBuf = new byte[frame.length + (frame.length/10)];
+        if (_imgBuf.length <= frame.length) {
+            _imgBuf = new byte[frame.length + (frame.length / 10)];
         }
         System.arraycopy(frame, 0, _imgBuf, 0, frame.length);
 
@@ -94,7 +96,7 @@ public class JpegRenderer extends Canvas implements FrameListener {
     /**
      * Keeps the image centered and sized right
      */
-    private void _SetImageSizeAndPosition(){
+    private void _SetImageSizeAndPosition() {
         // resize frame/window, if necessary
         if (_w != _img.getWidth(this) || _h != _img.getHeight(this)) {
             _w = _img.getWidth(this);

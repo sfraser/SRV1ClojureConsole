@@ -15,13 +15,14 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="01ef0f1a-9a3e-48d2-933d-92713878e6f5" name="Default" comment="made some minot">
+    <list default="true" readonly="true" id="01ef0f1a-9a3e-48d2-933d-92713878e6f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SRV1ClojureConsole.iws" afterPath="$PROJECT_DIR$/SRV1ClojureConsole.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Command.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Command.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SRV1ClojureConsole.ipr" afterPath="$PROJECT_DIR$/SRV1ClojureConsole.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1CommandCallback.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/SRV1CommandCallback.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java" afterPath="$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java" />
     </list>
     <ignored path="SRV1ClojureConsole.iws" />
     <ignored path="$USER_HOME_GRAILS$/" />
@@ -88,20 +89,24 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SRV1Test.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SRV1Test.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="52" selection-start="3042" selection-end="3042" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="21" column="20" selection-start="922" selection-end="922" vertical-scroll-proportion="0.39779004">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameListener.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FrameListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="16" selection-start="207" selection-end="207" vertical-scroll-proportion="0.22099447">
-              <folding />
+            <state line="11" column="16" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1319847988000" expanded="true" signature="128:154" placeholder="/**...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,7 +114,7 @@
       <file leaf-file-name="SRV1Command.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="38" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
+            <state line="29" column="38" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,7 +123,7 @@
       <file leaf-file-name="SRV1CommandCallback.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1CommandCallback.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
+            <state line="11" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,8 +132,11 @@
       <file leaf-file-name="JpegRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="0" selection-start="1581" selection-end="1581" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="64" column="0" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1319847988000" expanded="true" signature="802:1028" placeholder="/**...*/" />
+                <marker date="1319847988000" expanded="true" signature="1193:1417" placeholder="/**...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,8 +144,10 @@
       <file leaf-file-name="NetworkSRV1Reader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="72" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="35" column="72" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1319847988000" expanded="true" signature="246:272" placeholder="/**...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -181,9 +191,9 @@
         <option value="$PROJECT_DIR$/lib/clojure.jar!/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/MigLayoutTesting.java" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java" />
-        <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java" />
         <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1ClojureConsole.clj" />
+        <option value="$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java" />
       </list>
     </option>
   </component>
@@ -376,7 +386,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="preferences.sourceCode.General" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -620,7 +630,7 @@
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23205128" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23205128" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32564104" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -636,7 +646,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32063264" sideWeight="0.7589744" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32063264" sideWeight="0.7589744" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2423077" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Graphical Navigator" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -664,7 +674,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix for defect - I had switched the up and down buttons around&#10;also updating code to use the Clojure 1.2 new and improved &quot;reify&quot; instead&#10;of proxy." />
+    <option name="LAST_COMMIT_MESSAGE" value="made some minor changes to speed things up a tiny bit. Removed an&#10;unneeded sleep, and some extra work happening in the main loop.&#10;&#10;Also got rid of the collection of frameListeners since we really only&#10;have one." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -691,6 +701,7 @@
     <MESSAGE value="removing yet more unneeded comments" />
     <MESSAGE value="making the makeCommandButton function even more self contained by&#10;wrapping calls to java in anonymous functions set up in the let. I like this&#10;as we don't have those external functions now cluttering things up and&#10;also expecting you to pass in a param - now the button model is closed&#10;over." />
     <MESSAGE value="fix for defect - I had switched the up and down buttons around&#10;also updating code to use the Clojure 1.2 new and improved &quot;reify&quot; instead&#10;of proxy." />
+    <MESSAGE value="made some minor changes to speed things up a tiny bit. Removed an&#10;unneeded sleep, and some extra work happening in the main loop.&#10;&#10;Also got rid of the collection of frameListeners since we really only&#10;have one." />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -766,12 +777,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="38" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0" />
+        <state line="29" column="38" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1CommandCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0" />
+        <state line="11" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/ReplToRobotExamples.clj">
@@ -788,22 +803,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/JpegRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1581" selection-end="1581" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="52" selection-start="3042" selection-end="3042" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="64" column="0" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1319847988000" expanded="true" signature="802:1028" placeholder="/**...*/" />
+            <marker date="1319847988000" expanded="true" signature="1193:1417" placeholder="/**...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/NetworkSRV1Reader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="72" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="35" column="72" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1319847988000" expanded="true" signature="246:272" placeholder="/**...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -823,8 +836,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/FrameListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="16" selection-start="207" selection-end="207" vertical-scroll-proportion="0.22099447">
-          <folding />
+        <state line="11" column="16" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1319847988000" expanded="true" signature="128:154" placeholder="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/frasers/srv1/SRV1Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="20" selection-start="922" selection-end="922" vertical-scroll-proportion="0.39779004">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

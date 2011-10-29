@@ -6,11 +6,9 @@
 package org.frasers.srv1;
 
 /**
- *
  * @author sfraser
  */
-class SRV1Command
-{
+class SRV1Command {
     private final String _cmdString;
     private final byte[] _cmdBytes;
     private final SRV1CommandCallback _callback;
@@ -21,7 +19,15 @@ class SRV1Command
         _callback = callback;
     }
 
-    public String getString() { return _cmdString; }
-    public byte[] getBytes() { return _cmdBytes; }
-    public SRV1CommandCallback getCallback() { return _callback; }
+    public String getString() {
+        return _cmdString;
+    }
+
+    public byte[] getBytes() {
+        return _cmdBytes;
+    }
+
+    public SRV1CommandCallback getCallback() {
+        return _callback;
+    }
 }
