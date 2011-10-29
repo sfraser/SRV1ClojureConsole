@@ -19,6 +19,10 @@ public class NetworkSRV1Reader extends Thread {
 
     private static PrintStream __log = System.out;
 
+    /**
+     * Marker for start of image data
+     * @see #__IndexOfFrameHead(byte[])
+     */
     private static final byte[] __FRAME_HEAD = {'#', '#', 'I', 'M', 'J'};
 
     final private InetAddress _host;  // SRV-1 connection information
@@ -89,22 +93,21 @@ public class NetworkSRV1Reader extends Thread {
 
                     // run through the command queue befure requesting a new frame
                     while (!_commandQueue.isEmpty()) {
-                        SRV1Command c = _commandQueue.remove(0);
-                        _Send(c.getBytes());
-                        // Thread.sleep(1000);
-                        byte[] cmdResponse = new byte[SRV1Test.MTU];
-                        int resLen = _Read(cmdResponse);
+                        final SRV1Command c = _commandQueue.remove(0);
+                        _Send(c.CMD_BYTES);
+                        final byte[] cmdResponse = new byte[SRV1Test.MTU];
+                        final int resLen = _Read(cmdResponse);
                         String response = "--no response--";
                         if (resLen > 0) {
                             response = new String(cmdResponse, 0, resLen);
                         }
-                        c.getCallback().success(c.getString(), response);
+                        c.CMD_CALLBACK.success(c.CMD_STRING, response);
                     }
 
                     _Send(_frameRequest);
                 }
 
-                byte[] buf = new byte[SRV1Test.MTU];
+                final byte[] buf = new byte[SRV1Test.MTU];
 
                 int retries = 4;
                 int bytes = _Read(buf);
@@ -119,7 +122,7 @@ public class NetworkSRV1Reader extends Thread {
                 }
 
                 if (bytes > 0 && frame == null) {
-                    int frameStart = __IndexOf(buf, __FRAME_HEAD, 0);
+                    final int frameStart = __IndexOfFrameHead(buf);
                     if (frameStart == -1) {
                         __log.println("discarding...");
                         // TODO: read / discard everything on the line
@@ -127,7 +130,7 @@ public class NetworkSRV1Reader extends Thread {
                     } else {
                         int offset = __FRAME_HEAD.length;
                         long frameSize = 0;
-                        byte frameDim = buf[offset++];
+                        final byte frameDim = buf[offset++];
                         if (_bDebug) {
                             __log.println("frame dim: " + frameDim);
                         }
@@ -145,7 +148,7 @@ public class NetworkSRV1Reader extends Thread {
                         framePos += bytes - offset;
                     }
                 } else if (bytes > 0 && frame != null) {
-                    int leftToRead = frame.length - framePos; // bytes that remain to be read
+                    final int leftToRead = frame.length - framePos; // bytes that remain to be read
 
                     if (bytes < leftToRead) {
                         System.arraycopy(buf, 0, frame, framePos, bytes);
@@ -156,8 +159,8 @@ public class NetworkSRV1Reader extends Thread {
                         _frameListener.newFrame(frame);
 
                         frameCount++;
-                        long elapsed = (System.currentTimeMillis() - start) / 1000; // _sock
-                        float fps = frameCount / (elapsed + 1);
+                        final long elapsed = (System.currentTimeMillis() - start) / 1000; // _sock
+                        final float fps = frameCount / (elapsed + 1);
                         if (_bDebug) {
                             __log.println("read full frame, size: " + frame.length + ", " + fps + " fps");
                         }
@@ -177,14 +180,17 @@ public class NetworkSRV1Reader extends Thread {
     // Search for the sequence "part" in the full array "data", starting at index "start".
     // Returns -1 if the "data" array does not contain "part".
 
-    private static int __IndexOf(
-            final byte[] p_data,
-            final byte[] p_part,
-            final int p_start) {
+    /**
+     * Search the passed in data array, starting at the beginning, for the "frame head"
+     * returning the index if found.
+     * @param p_data Data to search
+     * @return Index of location of the frame head
+     */
+    private static int __IndexOfFrameHead( final byte[] p_data ) {
         int match = -1;
-        for (int i = p_start; i <= p_data.length - p_part.length && match == -1; i++) {
-            for (int j = 0; j < p_part.length && p_data[i + j] == p_part[j]; j++) {
-                if (j == p_part.length - 1) {
+        for (int i = 0; i <= p_data.length - __FRAME_HEAD.length && match == -1; i++) {
+            for (int j = 0; j < __FRAME_HEAD.length && p_data[i + j] == __FRAME_HEAD[j]; j++) {
+                if (j == __FRAME_HEAD.length - 1) {
                     match = i;
                 }
             }
