@@ -7,7 +7,7 @@
 (import 
   '(java.awt BorderLayout FlowLayout Color)
   '(java.awt.event ActionListener KeyListener KeyEvent)
-  '(javax.swing JFrame JTextField JButton JTextArea JPanel JComboBox JScrollPane JSplitPane)
+  '(javax.swing JFrame JTextField JButton JTextArea JPanel JComboBox JScrollPane JSplitPane Action KeyStroke)
   '(javax.swing.event ChangeListener)
   '(java.util ArrayList)
   '(net.miginfocom.swing MigLayout)
@@ -73,8 +73,8 @@
    ["LoRez" [(convertHexToBytesInString "62")]]
    ["HiRez" [(convertHexToBytesInString "63")]]
    ["HD" [(convertHexToBytesInString "41")]]
-   ["+" [(convertHexToBytesInString "2B")]]
-   ["-" [(convertHexToBytesInString "2D")]]
+   ["+" [(convertHexToBytesInString "2B") (convertHexToBytesInString "2B")]] ; send twice as this and next command are slow
+   ["-" [(convertHexToBytesInString "2D") (convertHexToBytesInString "2D")]]
 
    ;    ["L 20" (convertHexToBytesInString "4D007F14" )]
    ;    ["R 20" (convertHexToBytesInString "4DFF0014" )]
@@ -90,6 +90,7 @@
 (defn -main[]
 
   (let [f (JFrame. "SRV-1 Console - Clojure")
+        frameInputMap (.. f getContentPane getInputMap)
         jpegRenderer (doto (JpegRenderer. f) (.setSize 320 240))
         commandField (JTextField. 20)
         sendButton (JButton. "Send")
@@ -115,17 +116,21 @@
     ; set our global ref to the robot
     (def srv1 (NetworkSRV1Reader. SRV1Test/SRV_HOST SRV1Test/SRV_PORT SRV1Test/SRV_PROTOCOL jpegRenderer))
 
-
+    ; Add the control buttons to the MigLayout
     (doseq [[label cmds migString] srv1LabelsAndControlProtocol]
       (. pCmdButtons add (makeCommandButton label cmds) migString))
 
     (. sendButton addActionListener sendCommandAction)
 
+    ; This allows you to hit Enter in the command field
     (. commandField addKeyListener (proxy [KeyListener] []
                                      (keyPressed [e])
                                      (keyTyped [e])
                                      (keyReleased [e] (if (identical? (.getKeyCode e) KeyEvent/VK_ENTER)
                                                         (.actionPerformed sendCommandAction)))))
+
+    ; Add Key Listener for Down Key to Entire Frame   @todo add key bindings per http://docs.oracle.com/javase/tutorial/uiswing/misc/keybinding.html
+    (. frameInputMap put (KeyStroke/getKeyStroke "F2") "pressed")
 
     (doto f
       (.setBackground Color/WHITE)
